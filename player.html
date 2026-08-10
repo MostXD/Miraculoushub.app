@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miraculous Hub — Просмотр серии</title>
+  <title>Miraculous Hub — Просмотр видео</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -329,7 +329,7 @@
     <div class="player-wrapper" id="player-container">
       <div class="no-video-placeholder">
         <i class="fa-solid fa-film"></i>
-        <p>Загрузка серии...</p>
+        <p>Загрузка видео...</p>
       </div>
     </div>
 
@@ -347,7 +347,11 @@
         <button class="season-tab-btn active" data-season="1" onclick="switchSeason(1)">1 Сезон</button>
         <button class="season-tab-btn" data-season="2" onclick="switchSeason(2)">2 Сезон</button>
         <button class="season-tab-btn" data-season="3" onclick="switchSeason(3)">3 Сезон</button>
+        <button class="season-tab-btn" data-season="4" onclick="switchSeason(4)">4 Сезон</button>
+        <button class="season-tab-btn" data-season="5" onclick="switchSeason(5)">5 Сезон</button>
+        <button class="season-tab-btn" data-season="6" onclick="switchSeason(6)">6 Сезон</button>
         <button class="season-tab-btn" data-season="specials" onclick="switchSeason('specials')">⭐ Спешлы</button>
+        <button class="season-tab-btn" data-season="movies" onclick="switchSeason('movies')">🎬 Фильмы</button>
       </div>
 
       <div class="selector-title">
@@ -366,8 +370,8 @@
         <span>Новости</span>
       </a>
       <a href="episodes.html" class="bar-btn">
-        <i class="fa-solid fa-tv"></i>
-        <span>Сериал</span>
+        <i class="fa-solid fa-circle-play"></i>
+        <span>Смотреть</span>
       </a>
     </nav>
   </div>
@@ -457,9 +461,100 @@
         { num: 25, title: "Сердцеед (Битва за Талисманы - ч.1)", code: "325", date: "17 ноября 2019", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD85gAAjxNMUk" },
         { num: 26, title: "Королева Талисманов (Битва за Талисманы - ч.2)", code: "326", date: "23 ноября 2019", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD9JgAAjxNMUk" }
       ],
+      4: [
+        { num: 1, title: "Правда", code: "401", date: "3 апреля 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD_pgAAjxNMUk" },
+        { num: 2, title: "Ложь", code: "402", date: "10 апреля 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD_5gAAjxNMUk" },
+        { num: 3, title: "Банда тайн", code: "403", date: "17 апреля 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADAZkAAjxNMUk" },
+        { num: 4, title: "Месье Голубь 72", code: "404", date: "23 мая 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADApkAAjxNMUk" },
+        { num: 5, title: "Псикомик", code: "405", date: "29 января 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADA5kAAjxNMUk" },
+        { num: 6, title: "Разъярённый Фу", code: "406", date: "23 марта 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADBpkAAjxNMUk" },
+        { num: 7, title: "Палач Душ", code: "407", date: "25 мая 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADCpkAAjxNMUk" },
+        { num: 8, title: "Леди Банан", code: "408", date: "28 мая 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADC5kAAjxNMUk" },
+        { num: 9, title: "Габриэль Агрест", code: "409", date: "14 ноября 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADDJkAAjxNMUk" },
+        { num: 10, title: "Мега-пиявка", code: "410", date: "20 июля 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADDZkAAjxNMUk" },
+        { num: 11, title: "Вина", code: "411", date: "5 мая 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADDpkAAjxNMUk" },
+        { num: 12, title: "Крокодуэль", code: "412", date: "4 августа 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADD5kAAjxNMUk" },
+        { num: 13, title: "Оптигами", code: "413", date: "30 мая 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADEZkAAjxNMUk" },
+        { num: 14, title: "Сенсопузырь", code: "414", date: "6 июля 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADFJkAAjxNMUk" },
+        { num: 15, title: "Лединатор 2", code: "415", date: "24 октября 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADF5kAAjxNMUk" },
+        { num: 16, title: "Хак-Сан", code: "416", date: "15 сентября 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADGpkAAjxNMUk" },
+        { num: 17, title: "Плакса", code: "417", date: "13 июля 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADHJkAAjxNMUk" },
+        { num: 18, title: "Мечтатель", code: "418", date: "7 августа 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADH5kAAjxNMUk" },
+        { num: 19, title: "Простак", code: "419", date: "29 сентября 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADIZkAAjxNMUk" },
+        { num: 20, title: "Цилинь", code: "420", date: "12 февраля 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADI5kAAjxNMUk" },
+        { num: 21, title: "Дорогое семейство", code: "421", date: "20 октября 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADJpkAAjxNMUk" },
+        { num: 22, title: "Эфемер", code: "422", date: "7 ноября 2021", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADKZkAAjxNMUk" },
+        { num: 23, title: "Куро Нэко", code: "423", date: "25 января 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADLpkAAjxNMUk" },
+        { num: 24, title: "Команда Пенальти", code: "424", date: "12 февраля 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADNZkAAjxNMUk" },
+        { num: 25, title: "Риск (Последняя атака Мотылька Часть 1)", code: "425", date: "5 марта 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADNpkAAjxNMUk" },
+        { num: 26, title: "Ответный Удар (Последняя атака Мотылька Часть 2)", code: "426", date: "11 марта 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADN5kAAjxNMUk" }
+      ],
+      5: [
+        { num: 1, title: "Эволюция", code: "501", date: "14 июня 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADQJkAAjxNMUk" },
+        { num: 2, title: "Умножение", code: "502", date: "21 июня 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADRJgAAjxNMUk" },
+        { num: 3, title: "Разрушение", code: "503", date: "18 октября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADSJkAAjxNMUk" },
+        { num: 4, title: "Ликование", code: "504", date: "25 октября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADS5kAAjxNMUk" },
+        { num: 5, title: "Иллюзия", code: "505", date: "2 ноября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADTZkAAjxNMUk" },
+        { num: 6, title: "Решительность", code: "506", date: "28 октября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADTpkAAjxNMUk" },
+        { num: 7, title: "Страсть", code: "507", date: "31 октября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADT5kAAjxNMUk" },
+        { num: 8, title: "Воссоединение", code: "508", date: "1 ноября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADUpkAAjxNMUk" },
+        { num: 9, title: "Усиление", code: "509", date: "3 ноября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADVZkAAjxNMUk" },
+        { num: 10, title: "Передача (Выбор Квами - часть 1)", code: "510", date: "13 декабря 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADV5kAAjxNMUk" },
+        { num: 11, title: "Сгорание (Выбор Квами - часть 2)", code: "511", date: "11 февраля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADWJgAAjxNMUk" },
+        { num: 12, title: "Совершенство", code: "512", date: "22 ноября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADWZkAAjxNMUk" },
+        { num: 13, title: "Перемещение", code: "513", date: "14 апреля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADWpkAAjxNMUk" },
+        { num: 14, title: "Насмешка", code: "514", date: "15 апреля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADW5kAAjxNMUk" },
+        { num: 15, title: "Интуиция", code: "515", date: "23 апреля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADXZkAAjxNMUk" },
+        { num: 16, title: "Защита", code: "516", date: "29 ноября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADXpkAAjxNMUk" },
+        { num: 17, title: "Обожание", code: "517", date: "28 марта 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADYJkAAjxNMUk" },
+        { num: 18, title: "Эмоция", code: "518", date: "22 ноября 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADYpkAAjxNMUk" },
+        { num: 19, title: "Притворство", code: "519", date: "31 декабря 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADZZkAAjxNMUk" },
+        { num: 20, title: "Откровение", code: "520", date: "31 декабря 2022", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADaZkAAjxNMUk" },
+        { num: 21, title: "Противостояние", code: "521", date: "27 мая 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADbZkAAjxNMUk" },
+        { num: 22, title: "Сговор", code: "522", date: "27 мая 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADcJkAAjxNMUk" },
+        { num: 23, title: "Революция", code: "523", date: "17 июня 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADdJkAAjxNMUk" },
+        { num: 24, title: "Воплощение", code: "524", date: "10 июня 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADe5kAAjxNMUk" },
+        { num: 25, title: "Устройство (Последний День - часть 1)", code: "525", date: "1 июля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADgpkAAjxNMUk" },
+        { num: 26, title: "Воссоздание (Последний День - часть 2)", code: "526", date: "1 июля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADhJkAAjxNMUk" }
+      ],
+      6: [
+        { num: 1, title: "Королева Климата", code: "601", date: "16 апреля 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADjJkAAjxNMUk" },
+        { num: 2, title: "Визуализатор", code: "602", date: "25 января 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADlJkAAjxNMUk" },
+        { num: 3, title: "Сублимация", code: "603", date: "1 февраля 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADl5kAAjxNMUk" },
+        { num: 4, title: "Папакоп", code: "604", date: "8 февраля 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADnZkAAjxNMUk" },
+        { num: 5, title: "Битва Дедов", code: "605", date: "7 февраля 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADn5kAAjxNMUk" },
+        { num: 6, title: "Спящая Сирена", code: "606", date: "1 октября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADoZkAAjxNMUk" },
+        { num: 7, title: "Каменный Бык", code: "607", date: "23 апреля 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADpZkAAjxNMUk" },
+        { num: 8, title: "Вампигами", code: "608", date: "19 ноября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADqZkAAjxNMUk" },
+        { num: 9, title: "Месье Агрест", code: "609", date: "24 сентября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADrpkAAjxNMUk" },
+        { num: 10, title: "Тёмный замок", code: "610", date: "11 октября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADtpkAAjxNMUk" },
+        { num: 11, title: "Разоблачитель", code: "611", date: "21 марта 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADuJkAAjxNMUk" },
+        { num: 12, title: "Лихачка", code: "612", date: "8 октября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADuZkAAjxNMUk" },
+        { num: 13, title: "Якши Годзен", code: "613", date: "22 октября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADvJkAAjxNMUk" },
+        { num: 14, title: "Памперсайзер", code: "614", date: "12 ноября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADvpkAAjxNMUk" },
+        { num: 15, title: "Правитель", code: "615", date: "30 апреля 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADwJkAAjxNMUk" },
+        { num: 16, title: "Ноэ", code: "616", date: "29 октября 2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADwpkAAjxNMUk" },
+        { num: 17, title: "Фея сладких снов", code: "617", date: "15 марта 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADw5kAAjxNMUk" },
+        { num: 18, title: "Пачкуны", code: "618", date: "24 мая 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADxpkAAjxNMUk" },
+        { num: 19, title: "РеДжинерация", code: "619", date: "22 апреля 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADy5oAAjxNMUk" },
+        { num: 20, title: "Исцелительница сердец", code: "620", date: "1 апреля 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADzpoAAjxNMUk" },
+        { num: 21, title: "Скованные титаны", code: "621", date: "29 апреля 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADz5oAAjxNMUk" },
+        { num: 22, title: "Леди Хаос", code: "622", date: "28 марта 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD0poAAjxNMUk" },
+        { num: 23, title: "Грустнанси", code: "623", date: "12 апреля 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD1JoAAjxNMUk" },
+        { num: 24, title: "Королева Страхвиля", code: "624", date: "24 мая 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD25oAAjxNMUk" },
+        { num: 25, title: "Секретный протокол", code: "625", date: "1 августа 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADdaUAAlUteEs" },
+        { num: 26, title: "Немезида", code: "626", date: "8 августа 2026", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADQacAApXByEs" }
+      ],
       specials: [
         { num: 1, title: "Санта с когтями (Худшее Рождество)", code: "226", date: "11 декабря 2016", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADt5gAAjxNMUk" },
-        { num: 2, title: "Нью-Йорк: Объединённые герои", code: "327", date: "25 сентября 2020", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD95gAAjxNMUk" }
+        { num: 2, title: "Нью-Йорк: Объединённые герои", code: "327", date: "25 сентября 2020", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD95gAAjxNMUk" },
+        { num: 3, title: "Действие", code: "527", date: "13 сентября 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADh5kAAjxNMUk" },
+        { num: 4, title: "Лондон: Насыщенный день", code: "S04", date: "5 октября 2024", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD65oAAjxNMUk" },
+        { num: 5, title: "Токио: Звёздные ночи", code: "S05", date: "2025", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgAD85oAAjxNMUk" },
+        { num: 6, title: "Париж: Истории о Тёмном Баге и Коте Блане", code: "S06", date: "21 октября 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADLJsAAv9SCEs" }
+      ],
+      movies: [
+        { num: 1, title: "Леди Баг и Кот Нуар: Пробуждение (Полнометражный фильм)", code: "M01", date: "5 июля 2023", videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADkBAAAsBluVI" }
       ]
     };
 
@@ -474,7 +569,13 @@
         btn.classList.toggle('active', btn.getAttribute('data-season') === String(seasonKey));
       });
       
-      const label = typeof seasonKey === 'number' ? `Серии ${seasonKey} сезона` : 'Спешлы';
+      let label = 'Спешлы';
+      if (typeof seasonKey === 'number') {
+        label = `Серии ${seasonKey} сезона`;
+      } else if (seasonKey === 'movies') {
+        label = 'Фильмы';
+      }
+      
       document.getElementById('season-title').textContent = label;
       
       renderButtons();
@@ -499,8 +600,14 @@
       const item = list[index];
       if (!item) return;
       
-      const seasonLabel = typeof currentSeason === 'number' ? `${currentSeason} Сезон` : 'Спешл';
-      document.getElementById('ep-tag').textContent = `${seasonLabel} • Серия ${item.num}`;
+      let seasonLabel = 'Спешл';
+      if (typeof currentSeason === 'number') {
+        seasonLabel = `${currentSeason} Сезон`;
+      } else if (currentSeason === 'movies') {
+        seasonLabel = 'Фильм';
+      }
+
+      document.getElementById('ep-tag').textContent = `${seasonLabel} • №${item.num}`;
       document.getElementById('ep-title').textContent = `«${item.title}»`;
       document.getElementById('ep-date').textContent = item.date;
       document.getElementById('ep-code').textContent = item.code;
@@ -519,7 +626,7 @@
         container.innerHTML = `
           <div class="no-video-placeholder">
             <i class="fa-solid fa-film"></i>
-            <p>Серия скоро появится...</p>
+            <p>Видео скоро появится...</p>
           </div>
         `;
       }
@@ -530,8 +637,8 @@
     const epParam = parseInt(urlParams.get('ep')) || 1;
 
     let initialSeason = 1;
-    if (seasonParamRaw === 'specials') {
-      initialSeason = 'specials';
+    if (seasonParamRaw === 'specials' || seasonParamRaw === 'movies') {
+      initialSeason = seasonParamRaw;
     } else if (seasonParamRaw) {
       const parsedS = parseInt(seasonParamRaw);
       if (seasonsData[parsedS]) initialSeason = parsedS;
@@ -543,8 +650,13 @@
       btn.classList.toggle('active', btn.getAttribute('data-season') === String(currentSeason));
     });
     
-    const label = typeof currentSeason === 'number' ? `Серии ${currentSeason} сезона` : 'Спешлы';
-    document.getElementById('season-title').textContent = label;
+    let initialLabel = 'Спешлы';
+    if (typeof currentSeason === 'number') {
+      initialLabel = `Серии ${currentSeason} сезона`;
+    } else if (currentSeason === 'movies') {
+      initialLabel = 'Фильмы';
+    }
+    document.getElementById('season-title').textContent = initialLabel;
 
     renderButtons();
 

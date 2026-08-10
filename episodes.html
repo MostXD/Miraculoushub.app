@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miraculous Hub — Сериал и Спешлы</title>
+  <title>Miraculous Hub — Смотреть</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -294,18 +294,19 @@
   </header>
 
   <main>
-    <!-- Фильтры сезонов -->
+    <!-- Фильтры сезонов, спешлов и фильмов -->
     <div class="filter-scroll" id="filters-container">
-      <button class="filter-chip active" onclick="selectSeason(1)">1 Сезон</button>
-      <button class="filter-chip" onclick="selectSeason(2)">2 Сезон</button>
-      <button class="filter-chip" onclick="selectSeason(3)">3 Сезон</button>
-      <button class="filter-chip" onclick="selectSeason(4)">4 Сезон</button>
-      <button class="filter-chip" onclick="selectSeason(5)">5 Сезон</button>
-      <button class="filter-chip" onclick="selectSeason(6)">6 Сезон</button>
-      <button class="filter-chip" onclick="selectSeason('specials')">⭐ Спешлы</button>
+      <button class="filter-chip active" data-season="1" onclick="selectSeason(1)">1 Сезон</button>
+      <button class="filter-chip" data-season="2" onclick="selectSeason(2)">2 Сезон</button>
+      <button class="filter-chip" data-season="3" onclick="selectSeason(3)">3 Сезон</button>
+      <button class="filter-chip" data-season="4" onclick="selectSeason(4)">4 Сезон</button>
+      <button class="filter-chip" data-season="5" onclick="selectSeason(5)">5 Сезон</button>
+      <button class="filter-chip" data-season="6" onclick="selectSeason(6)">6 Сезон</button>
+      <button class="filter-chip" data-season="specials" onclick="selectSeason('specials')">⭐ Спешлы</button>
+      <button class="filter-chip" data-season="movies" onclick="selectSeason('movies')">🎬 Фильмы</button>
     </div>
 
-    <!-- Контейнер со списком серий -->
+    <!-- Контейнер со списком серий/фильмов -->
     <div class="episodes-list" id="episodes-list"></div>
   </main>
 
@@ -316,8 +317,8 @@
         <span>Новости</span>
       </a>
       <a href="episodes.html" class="bar-btn active">
-        <i class="fa-solid fa-tv"></i>
-        <span>Сериал</span>
+        <i class="fa-solid fa-circle-play"></i>
+        <span>Смотреть</span>
       </a>
     </nav>
   </div>
@@ -407,9 +408,100 @@
         { num: 25, title: "Сердцеед (Битва за Талисманы - ч.1)", code: "325", date: "17 ноября 2019" },
         { num: 26, title: "Королева Талисманов (Битва за Талисманы - ч.2)", code: "326", date: "23 ноября 2019" }
       ],
+      4: [
+        { num: 1, title: "Правда", code: "401", date: "3 апреля 2021" },
+        { num: 2, title: "Ложь", code: "402", date: "10 апреля 2021" },
+        { num: 3, title: "Банда тайн", code: "403", date: "17 апреля 2021" },
+        { num: 4, title: "Месье Голубь 72", code: "404", date: "23 мая 2021" },
+        { num: 5, title: "Псикомик", code: "405", date: "29 января 2022" },
+        { num: 6, title: "Разъярённый Фу", code: "406", date: "23 марта 2021" },
+        { num: 7, title: "Палач Душ", code: "407", date: "25 мая 2021" },
+        { num: 8, title: "Леди Банан", code: "408", date: "28 мая 2021" },
+        { num: 9, title: "Габриэль Агрест", code: "409", date: "14 ноября 2021" },
+        { num: 10, title: "Мега-пиявка", code: "410", date: "20 июля 2021" },
+        { num: 11, title: "Вина", code: "411", date: "5 мая 2021" },
+        { num: 12, title: "Крокодуэль", code: "412", date: "4 августа 2021" },
+        { num: 13, title: "Оптигами", code: "413", date: "30 мая 2021" },
+        { num: 14, title: "Сенсопузырь", code: "414", date: "6 июля 2021" },
+        { num: 15, title: "Лединатор 2", code: "415", date: "24 октября 2021" },
+        { num: 16, title: "Хак-Сан", code: "416", date: "15 сентября 2021" },
+        { num: 17, title: "Плакса", code: "417", date: "13 июля 2021" },
+        { num: 18, title: "Мечтатель", code: "418", date: "7 августа 2021" },
+        { num: 19, title: "Простак", code: "419", date: "29 сентября 2021" },
+        { num: 20, title: "Цилинь", code: "420", date: "12 февраля 2022" },
+        { num: 21, title: "Дорогое семейство", code: "421", date: "20 октября 2021" },
+        { num: 22, title: "Эфемер", code: "422", date: "7 ноября 2021" },
+        { num: 23, title: "Куро Нэко", code: "423", date: "25 января 2022" },
+        { num: 24, title: "Команда Пенальти", code: "424", date: "12 февраля 2022" },
+        { num: 25, title: "Риск (Последняя атака Мотылька Часть 1)", code: "425", date: "5 марта 2022" },
+        { num: 26, title: "Ответный Удар (Последняя атака Мотылька Часть 2)", code: "426", date: "11 марта 2022" }
+      ],
+      5: [
+        { num: 1, title: "Эволюция", code: "501", date: "14 июня 2022" },
+        { num: 2, title: "Умножение", code: "502", date: "21 июня 2022" },
+        { num: 3, title: "Разрушение", code: "503", date: "18 октября 2022" },
+        { num: 4, title: "Ликование", code: "504", date: "25 октября 2022" },
+        { num: 5, title: "Иллюзия", code: "505", date: "2 ноября 2022" },
+        { num: 6, title: "Решительность", code: "506", date: "28 октября 2022" },
+        { num: 7, title: "Страсть", code: "507", date: "31 октября 2022" },
+        { num: 8, title: "Воссоединение", code: "508", date: "1 ноября 2022" },
+        { num: 9, title: "Усиление", code: "509", date: "3 ноября 2022" },
+        { num: 10, title: "Передача (Выбор Квами - часть 1)", code: "510", date: "13 декабря 2022" },
+        { num: 11, title: "Сгорание (Выбор Квами - часть 2)", code: "511", date: "11 февраля 2023" },
+        { num: 12, title: "Совершенство", code: "512", date: "22 ноября 2022" },
+        { num: 13, title: "Перемещение", code: "513", date: "14 апреля 2023" },
+        { num: 14, title: "Насмешка", code: "514", date: "15 апреля 2023" },
+        { num: 15, title: "Интуиция", code: "515", date: "23 апреля 2023" },
+        { num: 16, title: "Защита", code: "516", date: "29 ноября 2022" },
+        { num: 17, title: "Обожание", code: "517", date: "28 марта 2023" },
+        { num: 18, title: "Эмоция", code: "518", date: "22 ноября 2022" },
+        { num: 19, title: "Притворство", code: "519", date: "31 декабря 2022" },
+        { num: 20, title: "Откровение", code: "520", date: "31 декабря 2022" },
+        { num: 21, title: "Противостояние", code: "521", date: "27 мая 2023" },
+        { num: 22, title: "Сговор", code: "522", date: "27 мая 2023" },
+        { num: 23, title: "Революция", code: "523", date: "17 июня 2023" },
+        { num: 24, title: "Воплощение", code: "524", date: "10 июня 2023" },
+        { num: 25, title: "Устройство (Последний День - часть 1)", code: "525", date: "1 июля 2023" },
+        { num: 26, title: "Воссоздание (Последний День - часть 2)", code: "526", date: "1 июля 2023" }
+      ],
+      6: [
+        { num: 1, title: "Королева Климата", code: "601", date: "16 апреля 2025" },
+        { num: 2, title: "Визуализатор", code: "602", date: "25 января 2025" },
+        { num: 3, title: "Сублимация", code: "603", date: "1 февраля 2025" },
+        { num: 4, title: "Папакоп", code: "604", date: "8 февраля 2025" },
+        { num: 5, title: "Битва Дедов", code: "605", date: "7 февраля 2025" },
+        { num: 6, title: "Спящая Сирена", code: "606", date: "1 октября 2025" },
+        { num: 7, title: "Каменный Бык", code: "607", date: "23 апреля 2025" },
+        { num: 8, title: "Вампигами", code: "608", date: "19 ноября 2025" },
+        { num: 9, title: "Месье Агрест", code: "609", date: "24 сентября 2025" },
+        { num: 10, title: "Тёмный замок", code: "610", date: "11 октября 2025" },
+        { num: 11, title: "Разоблачитель", code: "611", date: "21 марта 2025" },
+        { num: 12, title: "Лихачка", code: "612", date: "8 октября 2025" },
+        { num: 13, title: "Якши Годзен", code: "613", date: "22 октября 2025" },
+        { num: 14, title: "Памперсайзер", code: "614", date: "12 ноября 2025" },
+        { num: 15, title: "Правитель", code: "615", date: "30 апреля 2025" },
+        { num: 16, title: "Ноэ", code: "616", date: "29 октября 2025" },
+        { num: 17, title: "Фея сладких снов", code: "617", date: "15 марта 2026" },
+        { num: 18, title: "Пачкуны", code: "618", date: "24 мая 2026" },
+        { num: 19, title: "РеДжинерация", code: "619", date: "22 апреля 2026" },
+        { num: 20, title: "Исцелительница сердец", code: "620", date: "1 апреля 2026" },
+        { num: 21, title: "Скованные титаны", code: "621", date: "29 апреля 2026" },
+        { num: 22, title: "Леди Хаос", code: "622", date: "28 марта 2026" },
+        { num: 23, title: "Грустнанси", code: "623", date: "12 апреля 2026" },
+        { num: 24, title: "Королева Страхвиля", code: "624", date: "24 мая 2026" },
+        { num: 25, title: "Секретный протокол", code: "625", date: "1 августа 2026" },
+        { num: 26, title: "Немезида", code: "626", date: "8 августа 2026" }
+      ],
       specials: [
         { num: 1, title: "Санта с когтями (Худшее Рождество)", code: "226", date: "11 декабря 2016" },
-        { num: 2, title: "Нью-Йорк: Объединённые герои", code: "327", date: "25 сентября 2020" }
+        { num: 2, title: "Нью-Йорк: Объединённые герои", code: "327", date: "25 сентября 2020" },
+        { num: 3, title: "Действие", code: "527", date: "13 сентября 2023" },
+        { num: 4, title: "Лондон: Насыщенный день", code: "S04", date: "5 октября 2024" },
+        { num: 5, title: "Токио: Звёздные ночи", code: "S05", date: "2025" },
+        { num: 6, title: "Париж: Истории о Тёмном Баге и Коте Блане", code: "S06", date: "21 октября 2023" }
+      ],
+      movies: [
+        { num: 1, title: "Леди Баг и Кот Нуар: Пробуждение (Полнометражный фильм)", code: "M01", date: "5 июля 2023" }
       ]
     };
 
@@ -419,13 +511,10 @@
       activeSeason = sKey;
 
       const chips = document.querySelectorAll('.filter-chip');
-      chips.forEach(chip => chip.classList.remove('active'));
-
-      if (typeof sKey === 'number') {
-        chips[sKey - 1].classList.add('active');
-      } else if (sKey === 'specials') {
-        chips[6].classList.add('active');
-      }
+      chips.forEach(chip => {
+        const chipSeason = chip.getAttribute('data-season');
+        chip.classList.toggle('active', chipSeason === String(sKey));
+      });
 
       renderEpisodes();
     }
@@ -440,7 +529,7 @@
         container.innerHTML = `
           <div class="empty-msg">
             <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--red-bright); margin-bottom: 8px;"></i>
-            <p>Серии этого раздела скоро появятся!</p>
+            <p>Этот раздел скоро пополнится новыми релизами!</p>
           </div>
         `;
         return;
@@ -451,11 +540,16 @@
         card.className = 'episode-card';
         card.href = `player.html?s=${activeSeason}&ep=${ep.num}`;
         
-        const seasonLabel = typeof activeSeason === 'number' ? `${activeSeason} Сезон` : 'Спешл';
+        let seasonLabel = 'Спешл';
+        if (typeof activeSeason === 'number') {
+          seasonLabel = `${activeSeason} Сезон`;
+        } else if (activeSeason === 'movies') {
+          seasonLabel = 'Фильм';
+        }
         
         card.innerHTML = `
           <div class="ep-info">
-            <span class="ep-num">${seasonLabel} • Серия ${ep.num} (Код: ${ep.code})</span>
+            <span class="ep-num">${seasonLabel} • №${ep.num} (Код: ${ep.code})</span>
             <div class="ep-title">«${ep.title}»</div>
             <div class="ep-date"><i class="fa-regular fa-calendar"></i> ${ep.date}</div>
           </div>

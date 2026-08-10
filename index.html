@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -142,7 +141,6 @@
       gap: 1rem;
     }
 
-    /* Стили карточки новости с обрезкой текста */
     .post-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -186,7 +184,6 @@
       color: var(--text-white);
     }
 
-    /* Сокращенный текст (2 строчки) */
     .post-text {
       font-size: 0.85rem;
       color: var(--text-gray);
@@ -198,7 +195,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Раскрытый полноразмерный текст */
     .post-card.open .post-text {
       display: block;
       overflow: visible;
@@ -212,7 +208,6 @@
       margin-top: 0.3rem;
     }
 
-    /* Нижняя панель */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -253,7 +248,6 @@
       font-size: 1.1rem;
     }
 
-    /* Активная вкладка "Новости" по умолчанию */
     .bar-btn.active {
       background: var(--red-main);
       border-color: var(--red-main);
@@ -272,7 +266,7 @@
       <div class="bug-avatar"></div>
       <div class="brand-name">Miraculous <span>Hub</span></div>
     </a>
-    <a href="https://t.me/" target="_blank" class="tg-link">
+    <a href="https://t.me/videoformatmiracules" target="_blank" class="tg-link">
       <i class="fa-brands fa-telegram"></i>
       <span>Наш ТГ</span>
     </a>
@@ -286,15 +280,14 @@
 
     <div class="news-feed">
 
-      <!-- ШАБЛОН НОВОСТИ -->
       <article class="post-card" onclick="toggleNews(this)">
         <div class="post-meta">
-          <span class="badge">Пример категории</span>
+          <span class="badge"></span>
           <span class="post-date">Сегодня</span>
         </div>
-        <h3>Кликни на меня, чтобы развернуть текст</h3>
+        <h3>Все серии</h3>
         <p class="post-text">
-          Это пример длинного текста новости. В обычном состоянии видна только первая пара строчек, а весь остальной текст скрыт, чтобы не захламлять ленту. Нажми на карточку, и она откроется целиком!
+          теперь вы сможете смотреть леди баг и супер кот все 6 сезонов, спешлы и фильм на этом сайте без рекламы.
         </p>
         <span class="expand-hint">Читать полностью...</span>
       </article>
@@ -304,20 +297,18 @@
 
   <div class="bottom-bar">
     <nav class="bar-nav">
-      <!-- Вкладка "Новости" активна по умолчанию -->
       <a href="index.html" class="bar-btn active">
         <i class="fa-solid fa-newspaper"></i>
         <span>Новости</span>
       </a>
       <a href="episodes.html" class="bar-btn">
-        <i class="fa-solid fa-tv"></i>
-        <span>Сериал</span>
+        <i class="fa-solid fa-circle-play"></i>
+        <span>Смотреть</span>
       </a>
     </nav>
   </div>
 
   <script>
-    // Функция раскрытия / сворачивания новости
     function toggleNews(card) {
       card.classList.toggle('open');
       const hint = card.querySelector('.expand-hint');
