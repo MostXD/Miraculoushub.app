@@ -222,6 +222,13 @@
       color: #fff;
     }
 
+    .empty-msg {
+      text-align: center;
+      color: var(--text-gray);
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -287,253 +294,19 @@
   </header>
 
   <main>
-    <div class="filter-scroll">
-      <button class="filter-chip active">1 Сезон</button>
-      <button class="filter-chip">2 Сезон</button>
-      <button class="filter-chip">3 Сезон</button>
-      <button class="filter-chip">4 Сезон</button>
-      <button class="filter-chip">5 Сезон</button>
-      <button class="filter-chip">6 Сезон</button>
-      <button class="filter-chip">⭐ Спешлы</button>
+    <!-- Фильтры сезонов -->
+    <div class="filter-scroll" id="filters-container">
+      <button class="filter-chip active" onclick="selectSeason(1)">1 Сезон</button>
+      <button class="filter-chip" onclick="selectSeason(2)">2 Сезон</button>
+      <button class="filter-chip" onclick="selectSeason(3)">3 Сезон</button>
+      <button class="filter-chip" onclick="selectSeason(4)">4 Сезон</button>
+      <button class="filter-chip" onclick="selectSeason(5)">5 Сезон</button>
+      <button class="filter-chip" onclick="selectSeason(6)">6 Сезон</button>
+      <button class="filter-chip" onclick="selectSeason('specials')">⭐ Спешлы</button>
     </div>
 
-    <div class="episodes-list">
-
-      <a href="player.html?ep=1" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 1 (Код: 101)</span>
-          <div class="ep-title">«Непогода»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 19 декабря 2015</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=2" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 2 (Код: 109)</span>
-          <div class="ep-title">«Пузырь»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 19 декабря 2015</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=3" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 3 (Код: 106)</span>
-          <div class="ep-title">«Месье Голубь»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 16 января 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=4" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 4 (Код: 116)</span>
-          <div class="ep-title">«Повелительница времени»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 26 декабря 2015</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=5" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 5 (Код: 108)</span>
-          <div class="ep-title">«Двойник»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 26 декабря 2015</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=6" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 6 (Код: 111)</span>
-          <div class="ep-title">«Роджер-полицейский»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 30 января 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=7" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 7 (Код: 113)</span>
-          <div class="ep-title">«Зверочеловек»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 7 мая 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=8" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 8 (Код: 115)</span>
-          <div class="ep-title">«Фараон»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 16 января 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=9" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 9 (Код: 103)</span>
-          <div class="ep-title">«Леди Вайфай»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 23 января 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=10" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 10 (Код: 102)</span>
-          <div class="ep-title">«Злолюстратор»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 23 января 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=11" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 11 (Код: 117)</span>
-          <div class="ep-title">«Страшила»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 6 февраля 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=12" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 12 (Код: 105)</span>
-          <div class="ep-title">«Злобный купидон»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 13 февраля 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=13" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 13 (Код: 114)</span>
-          <div class="ep-title">«Тёмный рыцарь»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 9 апреля 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=14" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 14 (Код: 119)</span>
-          <div class="ep-title">«Мим»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 16 апреля 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=15" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 15 (Код: 118)</span>
-          <div class="ep-title">«Кукловод»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 14 мая 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=16" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 16 (Код: 104)</span>
-          <div class="ep-title">«Принцесса ароматов»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 4 июня 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=17" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 17 (Код: 112)</span>
-          <div class="ep-title">«Игрок»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 29 апреля 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=18" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 18 (Код: 121)</span>
-          <div class="ep-title">«Рефлекта»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 28 мая 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=19" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 19 (Код: 107)</span>
-          <div class="ep-title">«Пикселятор»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 10 сентября 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=20" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 20 (Код: 120)</span>
-          <div class="ep-title">«Злой гитарист»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 21 мая 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=21" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 21 (Код: 125)</span>
-          <div class="ep-title">«Кунг-фуд»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 23 апреля 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=22" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 22 (Код: 124)</span>
-          <div class="ep-title">«Антибаг»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 17 сентября 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=23" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 23 (Код: 110)</span>
-          <div class="ep-title">«Жакади»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 11 июня 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=24" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 24 (Код: 126)</span>
-          <div class="ep-title">«Вольпина»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 25 сентября 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=25" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 25 (Код: 122)</span>
-          <div class="ep-title">«Начало. Часть 1»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 16 октября 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-      <a href="player.html?ep=26" class="episode-card">
-        <div class="ep-info">
-          <span class="ep-num">1 Сезон • Серия 26 (Код: 123)</span>
-          <div class="ep-title">«Каменное сердце (часть 2)»</div>
-          <div class="ep-date"><i class="fa-regular fa-calendar"></i> 16 октября 2016</div>
-        </div>
-        <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-      </a>
-
-    </div>
+    <!-- Контейнер со списком серий -->
+    <div class="episodes-list" id="episodes-list"></div>
   </main>
 
   <div class="bottom-bar">
@@ -549,7 +322,151 @@
     </nav>
   </div>
 
+  <script>
+    const seasonsData = {
+      1: [
+        { num: 1, title: "Непогода", code: "101", date: "19 декабря 2015" },
+        { num: 2, title: "Пузырь", code: "109", date: "19 декабря 2015" },
+        { num: 3, title: "Месье Голубь", code: "106", date: "16 января 2016" },
+        { num: 4, title: "Повелительница времени", code: "116", date: "26 декабря 2015" },
+        { num: 5, title: "Двойник", code: "108", date: "26 декабря 2015" },
+        { num: 6, title: "Роджер-полицейский", code: "111", date: "30 января 2016" },
+        { num: 7, title: "Зверочеловек", code: "113", date: "7 мая 2016" },
+        { num: 8, title: "Фараон", code: "115", date: "16 января 2016" },
+        { num: 9, title: "Леди Вайфай", code: "103", date: "23 января 2016" },
+        { num: 10, title: "Злолюстратор", code: "102", date: "23 января 2016" },
+        { num: 11, title: "Страшила", code: "117", date: "6 февраля 2016" },
+        { num: 12, title: "Злобный купидон", code: "105", date: "13 февраля 2016" },
+        { num: 13, title: "Тёмный рыцарь", code: "114", date: "9 апреля 2016" },
+        { num: 14, title: "Мим", code: "119", date: "16 апреля 2016" },
+        { num: 15, title: "Кукловод", code: "118", date: "14 мая 2016" },
+        { num: 16, title: "Принцесса ароматов", code: "104", date: "4 июня 2016" },
+        { num: 17, title: "Игрок", code: "112", date: "29 апреля 2016" },
+        { num: 18, title: "Рефлекта", code: "121", date: "28 мая 2016" },
+        { num: 19, title: "Пикселятор", code: "107", date: "10 сентября 2016" },
+        { num: 20, title: "Злой гитарист", code: "120", date: "21 мая 2016" },
+        { num: 21, title: "Кунг-фуд", code: "125", date: "23 апреля 2016" },
+        { num: 22, title: "Антибаг", code: "124", date: "17 сентября 2016" },
+        { num: 23, title: "Жакади", code: "110", date: "11 июня 2016" },
+        { num: 24, title: "Вольпина", code: "126", date: "25 сентября 2016" },
+        { num: 25, title: "Начало. Часть 1", code: "122", date: "16 октября 2016" },
+        { num: 26, title: "Каменное сердце (часть 2)", code: "123", date: "16 октября 2016" }
+      ],
+      2: [
+        { num: 1, title: "Собиратель", code: "201", date: "21 октября 2017" },
+        { num: 2, title: "Гневный Мишка", code: "204", date: "21 октября 2017" },
+        { num: 3, title: "Королева Прайм-Тайма", code: "202", date: "28 октября 2017" },
+        { num: 4, title: "Бефана", code: "208", date: "30 октября 2017" },
+        { num: 5, title: "Укол", code: "207", date: "1 ноября 2017" },
+        { num: 6, title: "Робостус", code: "211", date: "3 ноября 2017" },
+        { num: 7, title: "Гигантитан", code: "206", date: "26 ноября 2017" },
+        { num: 8, title: "Филин", code: "213", date: "5 декабря 2017" },
+        { num: 9, title: "Лединатор", code: "203", date: "14 января 2018" },
+        { num: 10, title: "Сапотисы", code: "212", date: "21 января 2018" },
+        { num: 11, title: "Горизилла", code: "210", date: "14 марта 2018" },
+        { num: 12, title: "Капитан Хардрок", code: "216", date: "30 марта 2018" },
+        { num: 13, title: "Зомбизу", code: "215", date: "13 апреля 2018" },
+        { num: 14, title: "Сирена", code: "214", date: "5 мая 2018" },
+        { num: 15, title: "Соловей", code: "209", date: "12 мая 2018" },
+        { num: 16, title: "Бунтарка", code: "205", date: "16 июня 2018" },
+        { num: 17, title: "Обратитель", code: "220", date: "23 июля 2018" },
+        { num: 18, title: "Ананси", code: "221", date: "10 сентября 2018" },
+        { num: 19, title: "Сеятель", code: "223", date: "24 сентября 2018" },
+        { num: 20, title: "Королева Стиля (Битва Королев - ч.1)", code: "218", date: "6 октября 2018" },
+        { num: 21, title: "Королева Ос (Битва Королев - ч.2)", code: "219", date: "6 октября 2018" },
+        { num: 22, title: "Маледиктатор", code: "222", date: "12 октября 2018" },
+        { num: 23, title: "Мороз", code: "217", date: "13 октября 2018" },
+        { num: 24, title: "Катализатор (День Героев - ч.1)", code: "224", date: "21 октября 2018" },
+        { num: 25, title: "Маюра (День Героев - ч.2)", code: "225", date: "3 ноября 2018" }
+      ],
+      3: [
+        { num: 1, title: "Хамелеон", code: "301", date: "28 апреля 2019" },
+        { num: 2, title: "Анимаэстро", code: "302", date: "5 мая 2019" },
+        { num: 3, title: "Пекарикс", code: "303", date: "12 мая 2019" },
+        { num: 4, title: "Обратительница", code: "304", date: "14 апреля 2019" },
+        { num: 5, title: "Рефлекдолл", code: "305", date: "21 октября 2019" },
+        { num: 6, title: "Папа-оборотень", code: "306", date: "14 марта 2019" },
+        { num: 7, title: "Глушитель", code: "307", date: "19 марта 2019" },
+        { num: 8, title: "Они-Чан", code: "308", date: "8 апреля 2019" },
+        { num: 9, title: "Талисманка", code: "309", date: "6 мая 2019" },
+        { num: 10, title: "Обливио", code: "310", date: "5 мая 2019" },
+        { num: 11, title: "Десперада", code: "311", date: "16 мая 2019" },
+        { num: 12, title: "Крис Мастер", code: "312", date: "19 мая 2019" },
+        { num: 13, title: "Стартрейн", code: "313", date: "16 июня 2019" },
+        { num: 14, title: "Охотница за Квами", code: "314", date: "7 июля 2019" },
+        { num: 15, title: "Пожиратель", code: "315", date: "14 июля 2019" },
+        { num: 16, title: "Игрок. Версия 2", code: "316", date: "5 сентября 2019" },
+        { num: 17, title: "Непогода 2", code: "317", date: "7 сентября 2019" },
+        { num: 18, title: "Икари Годзен", code: "318", date: "13 сентября 2019" },
+        { num: 19, title: "Таймтэггер", code: "319", date: "19 сентября 2019" },
+        { num: 20, title: "Незваный гость", code: "320", date: "20 сентября 2019" },
+        { num: 21, title: "Кукловод 2", code: "321", date: "11 сентября 2019" },
+        { num: 22, title: "Белый Кот", code: "322", date: "14 октября 2019" },
+        { num: 23, title: "Феликс", code: "323", date: "13 октября 2019" },
+        { num: 24, title: "Леди Баг", code: "324", date: "15 октября 2019" },
+        { num: 25, title: "Сердцеед (Битва за Талисманы - ч.1)", code: "325", date: "17 ноября 2019" },
+        { num: 26, title: "Королева Талисманов (Битва за Талисманы - ч.2)", code: "326", date: "23 ноября 2019" }
+      ],
+      specials: [
+        { num: 1, title: "Санта с когтями (Худшее Рождество)", code: "226", date: "11 декабря 2016" },
+        { num: 2, title: "Нью-Йорк: Объединённые герои", code: "327", date: "25 сентября 2020" }
+      ]
+    };
+
+    let activeSeason = 1;
+
+    function selectSeason(sKey) {
+      activeSeason = sKey;
+
+      const chips = document.querySelectorAll('.filter-chip');
+      chips.forEach(chip => chip.classList.remove('active'));
+
+      if (typeof sKey === 'number') {
+        chips[sKey - 1].classList.add('active');
+      } else if (sKey === 'specials') {
+        chips[6].classList.add('active');
+      }
+
+      renderEpisodes();
+    }
+
+    function renderEpisodes() {
+      const container = document.getElementById('episodes-list');
+      container.innerHTML = '';
+
+      const episodes = seasonsData[activeSeason];
+
+      if (!episodes || episodes.length === 0) {
+        container.innerHTML = `
+          <div class="empty-msg">
+            <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--red-bright); margin-bottom: 8px;"></i>
+            <p>Серии этого раздела скоро появятся!</p>
+          </div>
+        `;
+        return;
+      }
+
+      episodes.forEach(ep => {
+        const card = document.createElement('a');
+        card.className = 'episode-card';
+        card.href = `player.html?s=${activeSeason}&ep=${ep.num}`;
+        
+        const seasonLabel = typeof activeSeason === 'number' ? `${activeSeason} Сезон` : 'Спешл';
+        
+        card.innerHTML = `
+          <div class="ep-info">
+            <span class="ep-num">${seasonLabel} • Серия ${ep.num} (Код: ${ep.code})</span>
+            <div class="ep-title">«${ep.title}»</div>
+            <div class="ep-date"><i class="fa-regular fa-calendar"></i> ${ep.date}</div>
+          </div>
+          <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    renderEpisodes();
+  </script>
+
 </body>
 </html>
-
-```
