@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miraculous Hub — Просмотр серии</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-color: #0f0d13;
+      --card-bg: #1c1825;
+      --card-hover: #262033;
+      --red-main: #e61c40;
+      --red-bright: #ff3355;
+      --red-glow: rgba(230, 28, 64, 0.35);
+      --text-white: #ffffff;
+      --text-gray: #a099b0;
+      --border: rgba(255, 255, 255, 0.1);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 85px;
+    }
+
+    header {
+      background: rgba(28, 24, 37, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--red-main);
+      padding: 0.8rem 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-white);
+    }
+
+    .bug-avatar {
+      width: 38px;
+      height: 38px;
+      background: var(--red-bright);
+      border-radius: 50%;
+      position: relative;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px var(--red-glow);
+    }
+
+    .bug-avatar::before, .bug-avatar::after {
+      content: '';
+      position: absolute;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    .bug-avatar::before {
+      width: 6px;
+      height: 6px;
+      top: 8px;
+      left: 14px;
+      box-shadow: -8px 10px 0 #000, 8px 10px 0 #000;
+    }
+
+    .bug-avatar::after {
+      width: 6px;
+      height: 6px;
+      bottom: 7px;
+      left: 14px;
+    }
+
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+
+    .brand-name span {
+      color: var(--red-bright);
+    }
+
+    .tg-link {
+      background: #229ed9;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 750px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.2rem 1rem;
+    }
+
+    /* Видеоплеер */
+    .player-wrapper {
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.2rem;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .player-wrapper video, 
+    .player-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: contain;
+    }
+
+    .no-video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-gray);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .no-video-placeholder i {
+      font-size: 2.5rem;
+      color: var(--red-bright);
+    }
+
+    .video-details {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .video-tag {
+      font-size: 0.8rem;
+      color: var(--red-bright);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .video-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .video-meta-bar {
+      display: flex;
+      gap: 15px;
+      font-size: 0.8rem;
+      color: var(--text-gray);
+    }
+
+    .episodes-selector {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .selector-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .ep-item-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem;
+      color: var(--text-white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.2s ease;
+    }
+
+    .ep-item-btn:hover {
+      background: var(--card-hover);
+      border-color: var(--red-bright);
+    }
+
+    .ep-item-btn.active {
+      background: var(--red-main);
+      border-color: var(--red-bright);
+      box-shadow: 0 0 10px var(--red-glow);
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #15121c;
+      border-top: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      z-index: 1000;
+    }
+
+    .bar-nav {
+      max-width: 450px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .bar-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.6rem;
+      text-decoration: none;
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .bar-btn i {
+      color: var(--red-bright);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">
+      <div class="bug-avatar"></div>
+      <div class="brand-name">Miraculous <span>Hub</span></div>
+    </a>
+    <a href="https://t.me/videoformatmiracules" target="_blank" class="tg-link">
+      <i class="fa-brands fa-telegram"></i>
+      <span>Наш ТГ</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- Контейнер плеера -->
+    <div class="player-wrapper" id="player-container">
+      <div class="no-video-placeholder">
+        <i class="fa-solid fa-film"></i>
+        <p>Загрузка серии...</p>
+      </div>
+    </div>
+
+    <!-- Детали текущей серии -->
+    <div class="video-details">
+      <div class="video-tag" id="ep-tag">1 Сезон</div>
+      <h1 class="video-title" id="ep-title">Загрузка...</h1>
+      <div class="video-meta-bar">
+        <span><i class="fa-regular fa-calendar"></i> <span id="ep-date">—</span></span>
+        <span><i class="fa-solid fa-code"></i> Код: <span id="ep-code">—</span></span>
+      </div>
+    </div>
+
+    <!-- Выбор серии -->
+    <div class="episodes-selector">
+      <div class="selector-title">
+        <span>Серии 1 сезона</span>
+        <i class="fa-solid fa-list-ul" style="color: var(--red-bright);"></i>
+      </div>
+
+      <div class="episodes-grid" id="episodes-grid"></div>
+    </div>
+  </main>
+
+  <!-- Нижняя панель переключения страниц -->
+  <div class="bottom-bar">
+    <nav class="bar-nav">
+      <a href="index.html" class="bar-btn">
+        <i class="fa-solid fa-newspaper"></i>
+        <span>Новости</span>
+      </a>
+      <a href="episodes.html" class="bar-btn">
+        <i class="fa-solid fa-tv"></i>
+        <span>Сериал</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    // Массив всех серий 1 сезона
+    const playlist = [
+      { 
+        num: 1, 
+        title: "Непогода", 
+        code: "101", 
+        date: "19 декабря 2015", 
+        videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADKpgAAjxNMUk" 
+      },
+      { 
+        num: 2, 
+        title: "Пузырь", 
+        code: "109", 
+        date: "19 декабря 2015", 
+        videoUrl: "https://stream.unlockify.ink/backend/api/stream/AgADK5gAAjxNMUk" 
+      },
+      { num: 3, title: "Месье Голубь", code: "106", date: "16 января 2016", videoUrl: "" },
+      { num: 4, title: "Повелительница времени", code: "116", date: "26 декабря 2015", videoUrl: "" },
+      { num: 5, title: "Двойник", code: "108", date: "26 декабря 2015", videoUrl: "" },
+      { num: 6, title: "Роджер-полицейский", code: "111", date: "30 января 2016", videoUrl: "" },
+      { num: 7, title: "Зверочеловек", code: "113", date: "7 мая 2016", videoUrl: "" },
+      { num: 8, title: "Фараон", code: "115", date: "16 января 2016", videoUrl: "" },
+      { num: 9, title: "Леди Вайфай", code: "103", date: "23 января 2016", videoUrl: "" },
+      { num: 10, title: "Злолюстратор", code: "102", date: "23 января 2016", videoUrl: "" },
+      { num: 11, title: "Страшила", code: "117", date: "6 февраля 2016", videoUrl: "" },
+      { num: 12, title: "Злобный купидон", code: "105", date: "13 февраля 2016", videoUrl: "" },
+      { num: 13, title: "Тёмный рыцарь", code: "114", date: "9 апреля 2016", date: "9 апреля 2016", videoUrl: "" },
+      { num: 14, title: "Мим", code: "119", date: "16 апреля 2016", videoUrl: "" },
+      { num: 15, title: "Кукловод", code: "118", date: "14 мая 2016", videoUrl: "" },
+      { num: 16, title: "Принцесса ароматов", code: "104", date: "4 июня 2016", videoUrl: "" },
+      { num: 17, title: "Игрок", code: "112", date: "29 апреля 2016", videoUrl: "" },
+      { num: 18, title: "Рефлекта", code: "121", date: "28 мая 2016", videoUrl: "" },
+      { num: 19, title: "Пикселятор", code: "107", date: "10 сентября 2016", videoUrl: "" },
+      { num: 20, title: "Злой гитарист", code: "120", date: "21 мая 2016", videoUrl: "" },
+      { num: 21, title: "Кунг-фуд", code: "125", date: "23 апреля 2016", videoUrl: "" },
+      { num: 22, title: "Антибаг", code: "124", date: "17 сентября 2016", videoUrl: "" },
+      { num: 23, title: "Жакади", code: "110", date: "11 июня 2016", videoUrl: "" },
+      { num: 24, title: "Вольпина", code: "126", date: "25 сентября 2016", videoUrl: "" },
+      { num: 25, title: "Начало. Часть 1", code: "122", date: "16 октября 2016", videoUrl: "" },
+      { num: 26, title: "Каменное сердце (часть 2)", code: "123", date: "16 октября 2016", videoUrl: "" }
+    ];
+
+    const grid = document.getElementById('episodes-grid');
+    const container = document.getElementById('player-container');
+
+    // Генерация кнопок серий
+    function renderButtons() {
+      grid.innerHTML = '';
+      playlist.forEach((item, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'ep-item-btn';
+        btn.textContent = `${item.num}. ${item.title}`;
+        btn.onclick = () => loadEpisode(index);
+        grid.appendChild(btn);
+      });
+    }
+
+    // Загрузка выбранной серии
+    function loadEpisode(index) {
+      const item = playlist[index];
+      if (!item) return;
+      
+      document.getElementById('ep-tag').textContent = `1 Сезон • Серия ${item.num}`;
+      document.getElementById('ep-title').textContent = `«${item.title}»`;
+      document.getElementById('ep-date').textContent = item.date;
+      document.getElementById('ep-code').textContent = item.code;
+
+      const buttons = grid.querySelectorAll('.ep-item-btn');
+      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+
+      if (item.videoUrl) {
+        // Запуск через встроенный чистый HTML5-плеер
+        container.innerHTML = `
+          <video controls autoplay playsinline controlsList="nodownload">
+            <source src="${item.videoUrl}" type="video/mp4">
+            Ваш браузер не поддерживает воспроизведение этого видео.
+          </video>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="no-video-placeholder">
+            <i class="fa-solid fa-film"></i>
+            <p>Серия скоро появится...</p>
+          </div>
+        `;
+      }
+    }
+
+    // Инициализация
+    renderButtons();
+
+    // Считываем номер серии из URL (?ep=N)
+    const urlParams = new URLSearchParams(window.location.search);
+    const epParam = parseInt(urlParams.get('ep')) || 1;
+    const initialIndex = playlist.findIndex(item => item.num === epParam);
+
+    loadEpisode(initialIndex !== -1 ? initialIndex : 0);
+  </script>
+
+</body>
+</html>
